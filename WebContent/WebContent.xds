@@ -1,0 +1,58 @@
+{
+    "name": "WebContent",
+    "settings": {
+        "spacesToIndent": 4,
+        "lineEnding": "CRLF",
+        "genTimestamps": false,
+        "cacheBust": false,
+        "urlPrefix": "",
+        "exportPath": "C:/Workspaces/eclipsework2/PublicOpinion/WebContent/",
+        "buildShouldOverwriteIndex": true
+    },
+    "xdsVersion": "2.2.2",
+    "xdsBuild": 991,
+    "schemaVersion": 1,
+    "upgradeVersion": 210000000503,
+    "framework": "ext42",
+    "topInstanceFileMap": {
+        "63669fd4-9740-47d3-b5eb-61206097052e": {
+            "paths": [
+                "metadata/view/MyViewport",
+                "app/view/override/MyViewport.js",
+                "app/view/MyViewport.js",
+                "app/view/Viewport.js"
+            ],
+            "className": "MyViewport"
+        },
+        "09c7b4be-d8a6-48f3-9d84-37fcd3101e57": {
+            "paths": [
+                "metadata/resource/Library"
+            ],
+            "className": "Library"
+        },
+        "8273c8cf-2ee3-47ee-acd4-fd2cbb61c34b": {
+            "paths": [
+                "metadata/model/userModel",
+                "app/model/override/userModel.js",
+                "app/model/userModel.js"
+            ],
+            "className": "userModel"
+        }
+    },
+    "viewOrderMap": {
+        "view": [
+            "63669fd4-9740-47d3-b5eb-61206097052e"
+        ],
+        "store": [],
+        "controller": [],
+        "model": [
+            "8273c8cf-2ee3-47ee-acd4-fd2cbb61c34b"
+        ],
+        "resource": [
+            "09c7b4be-d8a6-48f3-9d84-37fcd3101e57"
+        ],
+        "app": [
+            "application"
+        ]
+    }
+}

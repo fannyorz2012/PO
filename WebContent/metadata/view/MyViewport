@@ -1,0 +1,418 @@
+{
+    "type": "Ext.container.Viewport",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "MyViewport",
+        "designer|initialView": true,
+        "layout": "border"
+    },
+    "designerId": "63669fd4-9740-47d3-b5eb-61206097052e",
+    "cn": [
+        {
+            "type": "Ext.panel.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "layout|region": "north",
+                "layout|split": true,
+                "height": 50,
+                "title": "基于GIS的农地流转网络舆情区域风险分析"
+            },
+            "designerId": "2a9360d2-c832-4761-9002-b36dd0ed7bd0"
+        },
+        {
+            "type": "Ext.panel.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "layout|region": "west",
+                "layout|split": true,
+                "width": 150,
+                "layout": "accordion",
+                "collapsible": true,
+                "title": "管理面板"
+            },
+            "designerId": "6c22cd54-120b-47d2-af1b-d90507ecefe8",
+            "cn": [
+                {
+                    "type": "Ext.tree.Panel",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "title": "舆情信息获取",
+                        "root": [
+                            "{expanded: true,\r",
+                            "children: [\r",
+                            "    \r",
+                            "    {\r",
+                            "        id: '',\r",
+                            "        text: '信息来源设置',\r",
+                            "        icon:'',\r",
+                            "        leaf: true\r",
+                            "    },    \r",
+                            "    {\r",
+                            "        id: '',\r",
+                            "        text: '信息获取属性设置',\r",
+                            "        icon:'',\r",
+                            "        leaf: true\r",
+                            "    }\r",
+                            "    \r",
+                            "]}"
+                        ],
+                        "rootVisible": false
+                    },
+                    "designerId": "d3c06066-ade7-4bd3-81cb-98b53f51a3f4",
+                    "cn": [
+                        {
+                            "type": "Ext.tree.View",
+                            "reference": {
+                                "name": "viewConfig",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "designerId": "6d8cbd97-3c68-425f-b5cd-32bafe4a4deb"
+                        },
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onTreepanelSelectionChange",
+                                "implHandler": [
+                                    "var xtype = selected[0].get('id');   \r",
+                                    "var tabPanel = Ext.getCmp('myTabPanel');\r",
+                                    "tabPanel.removeAll(true);\r",
+                                    "tabPanel.add(Ext.widget(xtype));"
+                                ],
+                                "name": "selectionchange",
+                                "scope": "me"
+                            },
+                            "designerId": "6f51fe01-6b36-4f38-8ed8-6f569495a3ff"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.tree.Panel",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "title": "舆情信息分类",
+                        "root": [
+                            "{expanded: true,\r",
+                            "children: [\r",
+                            "    \r",
+                            "    {\r",
+                            "        id: '',\r",
+                            "        text: '地名语料库设置',\r",
+                            "        icon:'',\r",
+                            "        leaf: true\r",
+                            "    },    \r",
+                            "    {\r",
+                            "        id: '',\r",
+                            "        text: '舆情主题设置',\r",
+                            "        icon:'',\r",
+                            "        leaf: true\r",
+                            "    },    \r",
+                            "    {\r",
+                            "        id: '',\r",
+                            "        text: '舆情主题关键词库',\r",
+                            "        icon:'',\r",
+                            "        leaf: true\r",
+                            "    }\r",
+                            "    \r",
+                            "]}"
+                        ],
+                        "rootVisible": false
+                    },
+                    "designerId": "82f21c6f-6256-43f6-9d0a-abaa43ea58b7",
+                    "cn": [
+                        {
+                            "type": "Ext.tree.View",
+                            "reference": {
+                                "name": "viewConfig",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "designerId": "75da9983-4026-4cc3-84d6-974607fc11ec"
+                        },
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onTreepanelSelectionChange1",
+                                "implHandler": [
+                                    "var xtype = selected[0].get('id');   \r",
+                                    "var tabPanel = Ext.getCmp('myTabPanel');\r",
+                                    "tabPanel.removeAll(true);\r",
+                                    "tabPanel.add(Ext.widget(xtype));"
+                                ],
+                                "name": "selectionchange",
+                                "scope": "me"
+                            },
+                            "designerId": "d78d8f8a-4f26-419f-8ff1-ec51acebe41d"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.tree.Panel",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "title": "区域风险分析",
+                        "root": [
+                            "{expanded: true,\r",
+                            "children: [\r",
+                            "    \r",
+                            "    {\r",
+                            "        id: '',\r",
+                            "        text: '统计报表设置',\r",
+                            "        icon:'',\r",
+                            "        leaf: true\r",
+                            "    }\r",
+                            "    \r",
+                            "]}"
+                        ],
+                        "rootVisible": false
+                    },
+                    "designerId": "24252547-1951-4c72-9ee2-b03376b72a95",
+                    "cn": [
+                        {
+                            "type": "Ext.tree.View",
+                            "reference": {
+                                "name": "viewConfig",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "designerId": "b01e0bbd-ca61-4bc5-9a8f-4ddb4650f181"
+                        },
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onTreepanelSelectionChange2",
+                                "implHandler": [
+                                    "var xtype = selected[0].get('id');   \r",
+                                    "var tabPanel = Ext.getCmp('myTabPanel');\r",
+                                    "tabPanel.removeAll(true);\r",
+                                    "tabPanel.add(Ext.widget(xtype));"
+                                ],
+                                "name": "selectionchange",
+                                "scope": "me"
+                            },
+                            "designerId": "9209a5e7-3a04-4c02-9c95-48d8268e371a"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.tree.Panel",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "title": "区域风险制图",
+                        "root": [
+                            "{expanded: true,\r",
+                            "children: [\r",
+                            "    \r",
+                            "    {\r",
+                            "        id: '',\r",
+                            "        text: '阈值设置',\r",
+                            "        icon:'',\r",
+                            "        leaf: true\r",
+                            "    },    \r",
+                            "    {\r",
+                            "        id: '',\r",
+                            "        text: '地图显示',\r",
+                            "        icon:'',\r",
+                            "        leaf: true\r",
+                            "    },    \r",
+                            "    {\r",
+                            "        id: '',\r",
+                            "        text: '地图管理',\r",
+                            "        icon:'',\r",
+                            "        leaf: true\r",
+                            "    }\r",
+                            "    \r",
+                            "]}"
+                        ],
+                        "rootVisible": false
+                    },
+                    "designerId": "6bc9696e-2d7d-43cb-9157-e0bbeb95c189",
+                    "cn": [
+                        {
+                            "type": "Ext.tree.View",
+                            "reference": {
+                                "name": "viewConfig",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "designerId": "29057af3-8c82-45eb-b4c2-e697d6ecc9a8"
+                        },
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onTreepanelSelectionChange3",
+                                "implHandler": [
+                                    "var xtype = selected[0].get('id');   \r",
+                                    "var tabPanel = Ext.getCmp('myTabPanel');\r",
+                                    "tabPanel.removeAll(true);\r",
+                                    "tabPanel.add(Ext.widget(xtype));"
+                                ],
+                                "name": "selectionchange",
+                                "scope": "me"
+                            },
+                            "designerId": "a8471968-ff1c-4d77-81f4-851a9dbe9909"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Ext.panel.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "layout|region": "center",
+                "id": "myTabPanel",
+                "layout": "fit",
+                "title": ""
+            },
+            "designerId": "9cfc114c-d2fa-4229-8f36-7732e99000f2",
+            "cn": [
+                {
+                    "type": "Ext.form.Panel",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "bodyPadding": 10,
+                        "title": "UserForm",
+                        "jsonSubmit": true,
+                        "url": "add_user"
+                    },
+                    "designerId": "76229098-67f9-4e2d-9520-49fe64341546",
+                    "cn": [
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|anchor": "100%",
+                                "id": "name",
+                                "fieldLabel": "name",
+                                "name": "name"
+                            },
+                            "designerId": "b031aa3f-631d-4fb1-9287-4827d1f2c033"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|anchor": "100%",
+                                "id": "age",
+                                "fieldLabel": "age",
+                                "name": "age"
+                            },
+                            "designerId": "adf6d0b1-17ab-4c4f-a311-f71ceac90ecb"
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "text": "ok"
+                            },
+                            "designerId": "af235a7e-a176-4fea-9e84-1d09c21f0b26",
+                            "cn": [
+                                {
+                                    "type": "fixedfunction",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "handler",
+                                        "designer|params": [
+                                            "button",
+                                            "event"
+                                        ],
+                                        "implHandler": [
+                                            "var form = this.up('form').getForm(); // get the basic form\r",
+                                            "if (form.isValid()) { // make sure the form contains valid data before submitting\r",
+                                            "    form.submit({\r",
+                                            "        success: function(form, action) {\r",
+                                            "            Ext.Msg.alert('Success', 'chenggong');\r",
+                                            "        },\r",
+                                            "        failure: function(form, action) {\r",
+                                            "            Ext.Msg.alert('Failed', 'shibai');\r",
+                                            "        }\r",
+                                            "    });\r",
+                                            "} else { // display error alert if the data is invalid\r",
+                                            "    Ext.Msg.alert('Invalid Data', 'Please correct form errors.');\r",
+                                            "}\r",
+                                            ""
+                                        ]
+                                    },
+                                    "designerId": "c7cb7ec5-f460-4fe0-8b72-de91f22f0a5f"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
