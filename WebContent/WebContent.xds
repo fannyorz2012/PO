@@ -37,16 +37,44 @@
                 "app/model/userModel.js"
             ],
             "className": "userModel"
+        },
+        "8b27c619-f989-44cd-aafd-34949de93606": {
+            "paths": [
+                "metadata/view/DataCratchTab",
+                "app/view/override/DataCratchTab.js",
+                "app/view/DataCratchTab.js"
+            ],
+            "className": "DataCratchTab"
+        },
+        "029321d2-57ff-4cb4-be14-0a497a832db0": {
+            "paths": [
+                "metadata/store/newStatusStore",
+                "app/store/override/newStatusStore.js",
+                "app/store/newStatusStore.js"
+            ],
+            "className": "newStatusStore"
+        },
+        "e4195dc6-5932-4f15-a78b-a4c68dab4f87": {
+            "paths": [
+                "metadata/model/newStatusModel",
+                "app/model/override/newStatusModel.js",
+                "app/model/newStatusModel.js"
+            ],
+            "className": "newStatusModel"
         }
     },
     "viewOrderMap": {
         "view": [
-            "63669fd4-9740-47d3-b5eb-61206097052e"
+            "63669fd4-9740-47d3-b5eb-61206097052e",
+            "8b27c619-f989-44cd-aafd-34949de93606"
         ],
-        "store": [],
+        "store": [
+            "029321d2-57ff-4cb4-be14-0a497a832db0"
+        ],
         "controller": [],
         "model": [
-            "8273c8cf-2ee3-47ee-acd4-fd2cbb61c34b"
+            "8273c8cf-2ee3-47ee-acd4-fd2cbb61c34b",
+            "e4195dc6-5932-4f15-a78b-a4c68dab4f87"
         ],
         "resource": [
             "09c7b4be-d8a6-48f3-9d84-37fcd3101e57"

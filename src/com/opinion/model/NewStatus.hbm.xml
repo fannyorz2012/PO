@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2014-4-12 15:29:39 by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="com.opinion.model.NewStatus" table="new_status" catalog="opinion">
+        <id name="number" type="java.lang.Integer">
+            <column name="number" />
+            <generator class="identity" />
+        </id>
+        <property name="id" type="string">
+            <column name="id" length="50" />
+        </property>
+        <property name="createdAt" type="date">
+            <column name="created_at" length="10" />
+        </property>
+        <property name="mid" type="string">
+            <column name="mid" length="50" />
+        </property>
+        <property name="text" type="string">
+            <column name="text" length="65535" />
+        </property>
+    </class>
+</hibernate-mapping>

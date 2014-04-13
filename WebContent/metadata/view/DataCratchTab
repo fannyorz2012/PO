@@ -1,0 +1,303 @@
+{
+    "type": "Ext.panel.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "height": null,
+        "id": "DataCratchTab",
+        "width": null,
+        "designer|userClassName": "DataCratchTab",
+        "designer|userAlias": "DataCratchTab",
+        "layout": "fit",
+        "title": "舆情信息获取"
+    },
+    "designerId": "8b27c619-f989-44cd-aafd-34949de93606",
+    "cn": [
+        {
+            "type": "Ext.grid.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "id": "newStatusGrid",
+                "title": "微博列表",
+                "forceFit": true,
+                "store": "newStatusStore"
+            },
+            "designerId": "1509e96c-f55e-4186-ab3a-b0d42d6e9022",
+            "cn": [
+                {
+                    "type": "Ext.grid.RowNumberer",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "width": 50
+                    },
+                    "designerId": "6f141811-87a9-4e6f-a80a-643c66aa108c"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "width": 20,
+                        "dataIndex": "id",
+                        "text": "id"
+                    },
+                    "designerId": "e3f34328-1e76-4af9-bab6-ea924ad23e72"
+                },
+                {
+                    "type": "Ext.grid.column.Date",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "width": 15,
+                        "dataIndex": "createdAt",
+                        "text": "createdAt"
+                    },
+                    "designerId": "afc8697c-5717-4bae-9575-681e61b508b8"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "width": 20,
+                        "dataIndex": "mid",
+                        "text": "mid"
+                    },
+                    "designerId": "c93759b3-18ed-47cf-85bc-403a92709440"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "text",
+                        "text": "text"
+                    },
+                    "designerId": "0fc3883f-899c-4e7e-8246-6d834b0afd44"
+                },
+                {
+                    "type": "Ext.grid.View",
+                    "reference": {
+                        "name": "viewConfig",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "designerId": "02e6d480-7a7a-4d47-9de0-b9c3ba045853"
+                },
+                {
+                    "type": "Ext.toolbar.Paging",
+                    "reference": {
+                        "name": "dockedItems",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dock": "bottom",
+                        "width": 360,
+                        "displayInfo": true,
+                        "store": "newStatusStore"
+                    },
+                    "designerId": "3ca3bda6-3870-4558-8d40-3b955d9e6c4f"
+                }
+            ]
+        },
+        {
+            "type": "Ext.toolbar.Toolbar",
+            "reference": {
+                "name": "dockedItems",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dock": "top"
+            },
+            "designerId": "a10abf52-be9c-4e13-a596-01e1c30df844",
+            "cn": [
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": null,
+                        "text": "微博授权"
+                    },
+                    "designerId": "6d093ea8-498d-4818-ae98-e10fd52aeb05",
+                    "cn": [
+                        {
+                            "type": "fixedfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "handler",
+                                "designer|params": [
+                                    "button",
+                                    "event"
+                                ],
+                                "implHandler": [
+                                    "Ext.Msg.confirm('您正在抓取微博数据：', '确认抓取？', getResult);\r",
+                                    "function getResult(confirm)\r",
+                                    "{\r",
+                                    "    console.log('confirm:', confirm);\r",
+                                    "    if (confirm == \"yes\"){\r",
+                                    "\r",
+                                    "\r",
+                                    "        Ext.Ajax.request({\r",
+                                    "            url:'oauth_weibodata',\r",
+                                    "            params:{testparam:'0'},        \r",
+                                    "            success:function(response){\r",
+                                    "                Ext.Msg.alert('success','抓取成功');                         \r",
+                                    "            },\r",
+                                    "            failure:function(response){\r",
+                                    "                Ext.Msg.alert('failure','抓取失败');      \r",
+                                    "            }\r",
+                                    "\r",
+                                    "        });\r",
+                                    "    }   \r",
+                                    "}"
+                                ]
+                            },
+                            "designerId": "d6281532-3e88-4bba-a4a8-601f6c440d53"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": null,
+                        "text": "发微博"
+                    },
+                    "designerId": "c89638f6-d61c-4a5d-b5f4-34415afd0d4d",
+                    "cn": [
+                        {
+                            "type": "fixedfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "handler",
+                                "designer|params": [
+                                    "button",
+                                    "event"
+                                ],
+                                "implHandler": [
+                                    "Ext.Msg.confirm('您正在发微博数据：', '确认？', getResult);\r",
+                                    "function getResult(confirm)\r",
+                                    "{\r",
+                                    "    console.log('confirm:', confirm);\r",
+                                    "    if (confirm == \"yes\"){\r",
+                                    "\r",
+                                    "\r",
+                                    "        Ext.Ajax.request({\r",
+                                    "            url:'send_weibodata',\r",
+                                    "            params:{testparam:'0'},        \r",
+                                    "            success:function(response){\r",
+                                    "                Ext.Msg.alert('success','发微博成功');                         \r",
+                                    "            },\r",
+                                    "            failure:function(response){\r",
+                                    "                Ext.Msg.alert('failure','发微博失败');      \r",
+                                    "            }\r",
+                                    "\r",
+                                    "        });\r",
+                                    "    }   \r",
+                                    "}"
+                                ]
+                            },
+                            "designerId": "c2a65165-4549-46f6-86f9-7cb8c02aa964"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": null,
+                        "text": "抓取微博"
+                    },
+                    "designerId": "dde1215f-b956-4efd-975a-65b0a86ebe97",
+                    "cn": [
+                        {
+                            "type": "fixedfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "handler",
+                                "designer|params": [
+                                    "button",
+                                    "event"
+                                ],
+                                "implHandler": [
+                                    "Ext.Msg.confirm('您正在抓取微博数据：', '确认？', getResult);\r",
+                                    "function getResult(confirm)\r",
+                                    "{\r",
+                                    "    console.log('confirm:', confirm);\r",
+                                    "    if (confirm == \"yes\"){\r",
+                                    "\r",
+                                    "\r",
+                                    "        Ext.Ajax.request({\r",
+                                    "            url:'catch_weibodata',\r",
+                                    "            params:{testparam:'0'},        \r",
+                                    "            success:function(response){\r",
+                                    "                var mystore = Ext.StoreMgr.get('newStatusStore'); //获得store对象\r",
+                                    "                mystore.load();\r",
+                                    "                Ext.Msg.alert('success','抓取微博成功');                         \r",
+                                    "            },\r",
+                                    "            failure:function(response){\r",
+                                    "                Ext.Msg.alert('failure','抓取微博失败');      \r",
+                                    "            }\r",
+                                    "\r",
+                                    "        });\r",
+                                    "    }   \r",
+                                    "}"
+                                ]
+                            },
+                            "designerId": "43236664-1807-4cb5-a2ef-0d67584cf102"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

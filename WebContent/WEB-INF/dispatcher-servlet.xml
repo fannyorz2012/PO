@@ -34,7 +34,10 @@
 		<property name="dataSource" ref="dataSource" />
 		<property name="mappingResources">
 			<list>
-			<value>com/opinion/model/User.hbm.xml</value>	
+			<value>com/opinion/model/User.hbm.xml</value>
+			<value>com/opinion/model/Weibo.hbm.xml</value>
+			<value>com/opinion/model/NewStatus.hbm.xml</value>
+				
 
 
 			</list>

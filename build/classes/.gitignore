@@ -1,0 +1,10 @@
+/assets
+/com
+/config.properties
+/entities
+/hibernate.cfg.xml
+/index.html
+/log4j.properties
+/resources
+/tables
+/weibo4j

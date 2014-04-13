@@ -50,6 +50,12 @@ Ext.define('MyApp.view.MyViewport', {
                                 expanded: true,
                                 children: [
                                     {
+                                        id: 'DataCratchTab',
+                                        text: '微博数据获取',
+                                        icon: '',
+                                        leaf: true
+                                    },
+                                    {
                                         id: '',
                                         text: '信息来源设置',
                                         icon: '',

@@ -20,10 +20,15 @@ Ext.Loader.setConfig({
 
 Ext.application({
     models: [
-        'userModel'
+        'userModel',
+        'newStatusModel'
+    ],
+    stores: [
+        'newStatusStore'
     ],
     views: [
-        'MyViewport'
+        'MyViewport',
+        'DataCratchTab'
     ],
     autoCreateViewport: true,
     name: 'MyApp'
