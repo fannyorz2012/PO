@@ -28,7 +28,8 @@ Ext.application({
     ],
     views: [
         'MyViewport',
-        'DataCratchTab'
+        'XlWeiboDataCatchTab',
+        'QqWeiboDataCatchTab'
     ],
     autoCreateViewport: true,
     name: 'MyApp'

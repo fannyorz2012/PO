@@ -40,11 +40,11 @@
         },
         "8b27c619-f989-44cd-aafd-34949de93606": {
             "paths": [
-                "metadata/view/DataCratchTab",
-                "app/view/override/DataCratchTab.js",
-                "app/view/DataCratchTab.js"
+                "metadata/view/XlWeiboDataCatchTab",
+                "app/view/override/XlWeiboDataCatchTab.js",
+                "app/view/XlWeiboDataCatchTab.js"
             ],
-            "className": "DataCratchTab"
+            "className": "XlWeiboDataCatchTab"
         },
         "029321d2-57ff-4cb4-be14-0a497a832db0": {
             "paths": [
@@ -61,12 +61,21 @@
                 "app/model/XlNewStatusModel.js"
             ],
             "className": "XlNewStatusModel"
+        },
+        "d4d0abd7-df5f-441e-a6e5-8fc8f5648c67": {
+            "paths": [
+                "metadata/view/QqWeiboDataCatchTab",
+                "app/view/override/QqWeiboDataCatchTab.js",
+                "app/view/QqWeiboDataCatchTab.js"
+            ],
+            "className": "QqWeiboDataCatchTab"
         }
     },
     "viewOrderMap": {
         "view": [
             "63669fd4-9740-47d3-b5eb-61206097052e",
-            "8b27c619-f989-44cd-aafd-34949de93606"
+            "8b27c619-f989-44cd-aafd-34949de93606",
+            "d4d0abd7-df5f-441e-a6e5-8fc8f5648c67"
         ],
         "store": [
             "029321d2-57ff-4cb4-be14-0a497a832db0"

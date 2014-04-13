@@ -51,7 +51,7 @@ public class WeiboService {
 	
 	
 
-	public void addNewSatus(Status s) {
+	public void addXlNewSatus(Status s) {
 		XlNewStatus xlNewStatus = new XlNewStatus();
 		xlNewStatus.setCreatedAt(s.getCreatedAt());
 		xlNewStatus.setId(s.getId());
