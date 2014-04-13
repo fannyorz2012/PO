@@ -30,10 +30,10 @@ Ext.define('MyApp.view.DataCratchTab', {
             items: [
                 {
                     xtype: 'gridpanel',
-                    id: 'newStatusGrid',
+                    id: 'XlNewStatusGrid',
                     title: '微博列表',
                     forceFit: true,
-                    store: 'newStatusStore',
+                    store: 'XlNewStatusStore',
                     columns: [
                         {
                             xtype: 'rownumberer',
@@ -69,7 +69,7 @@ Ext.define('MyApp.view.DataCratchTab', {
                             dock: 'bottom',
                             width: 360,
                             displayInfo: true,
-                            store: 'newStatusStore'
+                            store: 'XlNewStatusStore'
                         }
                     ]
                 }
@@ -90,7 +90,7 @@ Ext.define('MyApp.view.DataCratchTab', {
 
 
                                         Ext.Ajax.request({
-                                            url:'oauth_weibodata',
+                                            url:'oauth_xlweibodata',
                                             params:{testparam:'0'},        
                                             success:function(response){
                                                 Ext.Msg.alert('success','抓取成功');                         
@@ -116,7 +116,7 @@ Ext.define('MyApp.view.DataCratchTab', {
 
 
                                         Ext.Ajax.request({
-                                            url:'send_weibodata',
+                                            url:'send_xlweibodata',
                                             params:{testparam:'0'},        
                                             success:function(response){
                                                 Ext.Msg.alert('success','发微博成功');                         
@@ -142,10 +142,10 @@ Ext.define('MyApp.view.DataCratchTab', {
 
 
                                         Ext.Ajax.request({
-                                            url:'catch_weibodata',
+                                            url:'catch_xlweibodata',
                                             params:{testparam:'0'},        
                                             success:function(response){
-                                                var mystore = Ext.StoreMgr.get('newStatusStore'); //获得store对象
+                                                var mystore = Ext.StoreMgr.get('XlNewStatusStore'); //获得store对象
                                                 mystore.load();
                                                 Ext.Msg.alert('success','抓取微博成功');                         
                                             },

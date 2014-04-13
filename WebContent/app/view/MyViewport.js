@@ -51,7 +51,13 @@ Ext.define('MyApp.view.MyViewport', {
                                 children: [
                                     {
                                         id: 'DataCratchTab',
-                                        text: '微博数据获取',
+                                        text: '新浪微博数据获取',
+                                        icon: '',
+                                        leaf: true
+                                    },
+                                    {
+                                        id: '',
+                                        text: 'QQ微博数据获取',
                                         icon: '',
                                         leaf: true
                                     },

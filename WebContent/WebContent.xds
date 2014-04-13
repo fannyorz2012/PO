@@ -48,19 +48,19 @@
         },
         "029321d2-57ff-4cb4-be14-0a497a832db0": {
             "paths": [
-                "metadata/store/newStatusStore",
-                "app/store/override/newStatusStore.js",
-                "app/store/newStatusStore.js"
+                "metadata/store/XlNewStatusStore",
+                "app/store/override/XlNewStatusStore.js",
+                "app/store/XlNewStatusStore.js"
             ],
-            "className": "newStatusStore"
+            "className": "XlNewStatusStore"
         },
         "e4195dc6-5932-4f15-a78b-a4c68dab4f87": {
             "paths": [
-                "metadata/model/newStatusModel",
-                "app/model/override/newStatusModel.js",
-                "app/model/newStatusModel.js"
+                "metadata/model/XlNewStatusModel",
+                "app/model/override/XlNewStatusModel.js",
+                "app/model/XlNewStatusModel.js"
             ],
-            "className": "newStatusModel"
+            "className": "XlNewStatusModel"
         }
     },
     "viewOrderMap": {

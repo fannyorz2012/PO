@@ -1,6 +1,6 @@
 package com.opinion.model;
 
-// Generated 2014-4-12 15:29:39 by Hibernate Tools 4.0.0
+// Generated 2014-4-13 14:57:01 by Hibernate Tools 4.0.0
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -11,15 +11,15 @@ import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Example;
 
 /**
- * Home object for domain model class NewStatus.
- * @see com.opinion.model.NewStatus
+ * Home object for domain model class XlNewStatus.
+ * @see com.opinion.model.XlNewStatus
  * @author Hibernate Tools
  */
 
 @Repository
-public class NewStatusHome {
+public class XlNewStatusHome {
 
-	private static final Log log = LogFactory.getLog(NewStatusHome.class);
+	private static final Log log = LogFactory.getLog(XlNewStatusHome.class);
 
 	private SessionFactory sessionFactory = null;
 
@@ -32,8 +32,8 @@ public class NewStatusHome {
 		return sessionFactory;
 	}
 
-	public void persist(NewStatus transientInstance) {
-		log.debug("persisting NewStatus instance");
+	public void persist(XlNewStatus transientInstance) {
+		log.debug("persisting XlNewStatus instance");
 		try {
 			sessionFactory.getCurrentSession().persist(transientInstance);
 			log.debug("persist successful");
@@ -43,8 +43,8 @@ public class NewStatusHome {
 		}
 	}
 
-	public void update(NewStatus instance) {
-		log.debug("attaching dirty NewStatus instance");
+	public void update(XlNewStatus instance) {
+		log.debug("attaching dirty XlNewStatus instance");
 		try {
 			sessionFactory.getCurrentSession().saveOrUpdate(instance);
 			log.debug("attach successful");
@@ -54,8 +54,8 @@ public class NewStatusHome {
 		}
 	}
 
-	public void delete(NewStatus persistentInstance) {
-		log.debug("deleting NewStatus instance");
+	public void delete(XlNewStatus persistentInstance) {
+		log.debug("deleting XlNewStatus instance");
 		try {
 			sessionFactory.getCurrentSession().delete(persistentInstance);
 			log.debug("delete successful");
@@ -65,11 +65,11 @@ public class NewStatusHome {
 		}
 	}
 
-	public NewStatus merge(NewStatus detachedInstance) {
-		log.debug("merging NewStatus instance");
+	public XlNewStatus merge(XlNewStatus detachedInstance) {
+		log.debug("merging XlNewStatus instance");
 		try {
-			NewStatus result = (NewStatus) sessionFactory.getCurrentSession()
-					.merge(detachedInstance);
+			XlNewStatus result = (XlNewStatus) sessionFactory
+					.getCurrentSession().merge(detachedInstance);
 			log.debug("merge successful");
 			return result;
 		} catch (RuntimeException re) {
@@ -78,11 +78,12 @@ public class NewStatusHome {
 		}
 	}
 
-	public NewStatus findById(java.lang.Integer id) {
-		log.debug("getting NewStatus instance with id: " + id);
+	public XlNewStatus findById(java.lang.Integer id) {
+		log.debug("getting XlNewStatus instance with id: " + id);
 		try {
-			NewStatus instance = (NewStatus) sessionFactory.getCurrentSession()
-					.get("com.opinion.model.NewStatus", id);
+			XlNewStatus instance = (XlNewStatus) sessionFactory
+					.getCurrentSession().get("com.opinion.model.XlNewStatus",
+							id);
 			if (instance == null) {
 				log.debug("get successful, no instance found");
 			} else {
@@ -95,11 +96,11 @@ public class NewStatusHome {
 		}
 	}
 
-	public List findByExample(NewStatus instance) {
-		log.debug("finding NewStatus instance by example");
+	public List findByExample(XlNewStatus instance) {
+		log.debug("finding XlNewStatus instance by example");
 		try {
 			List results = sessionFactory.getCurrentSession()
-					.createCriteria("com.opinion.model.NewStatus")
+					.createCriteria("com.opinion.model.XlNewStatus")
 					.add(Example.create(instance)).list();
 			log.debug("find by example successful, result size: "
 					+ results.size());

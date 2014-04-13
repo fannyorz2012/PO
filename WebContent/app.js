@@ -21,10 +21,10 @@ Ext.Loader.setConfig({
 Ext.application({
     models: [
         'userModel',
-        'newStatusModel'
+        'XlNewStatusModel'
     ],
     stores: [
-        'newStatusStore'
+        'XlNewStatusStore'
     ],
     views: [
         'MyViewport',

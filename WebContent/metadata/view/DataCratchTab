@@ -24,10 +24,10 @@
             },
             "codeClass": null,
             "userConfig": {
-                "id": "newStatusGrid",
+                "id": "XlNewStatusGrid",
                 "title": "微博列表",
                 "forceFit": true,
-                "store": "newStatusStore"
+                "store": "XlNewStatusStore"
             },
             "designerId": "1509e96c-f55e-4186-ab3a-b0d42d6e9022",
             "cn": [
@@ -118,7 +118,7 @@
                         "dock": "bottom",
                         "width": 360,
                         "displayInfo": true,
-                        "store": "newStatusStore"
+                        "store": "XlNewStatusStore"
                     },
                     "designerId": "3ca3bda6-3870-4558-8d40-3b955d9e6c4f"
                 }
@@ -171,7 +171,7 @@
                                     "\r",
                                     "\r",
                                     "        Ext.Ajax.request({\r",
-                                    "            url:'oauth_weibodata',\r",
+                                    "            url:'oauth_xlweibodata',\r",
                                     "            params:{testparam:'0'},        \r",
                                     "            success:function(response){\r",
                                     "                Ext.Msg.alert('success','抓取成功');                         \r",
@@ -224,7 +224,7 @@
                                     "\r",
                                     "\r",
                                     "        Ext.Ajax.request({\r",
-                                    "            url:'send_weibodata',\r",
+                                    "            url:'send_xlweibodata',\r",
                                     "            params:{testparam:'0'},        \r",
                                     "            success:function(response){\r",
                                     "                Ext.Msg.alert('success','发微博成功');                         \r",
@@ -277,10 +277,10 @@
                                     "\r",
                                     "\r",
                                     "        Ext.Ajax.request({\r",
-                                    "            url:'catch_weibodata',\r",
+                                    "            url:'catch_xlweibodata',\r",
                                     "            params:{testparam:'0'},        \r",
                                     "            success:function(response){\r",
-                                    "                var mystore = Ext.StoreMgr.get('newStatusStore'); //获得store对象\r",
+                                    "                var mystore = Ext.StoreMgr.get('XlNewStatusStore'); //获得store对象\r",
                                     "                mystore.load();\r",
                                     "                Ext.Msg.alert('success','抓取微博成功');                         \r",
                                     "            },\r",

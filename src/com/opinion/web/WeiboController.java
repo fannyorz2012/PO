@@ -34,8 +34,8 @@ public class WeiboController {
 		this.weiboService = weiboService;
 	}
 
-	// 微博授权
-	@RequestMapping(value = "/oauth_weibodata")
+	// 新浪微博授权
+	@RequestMapping(value = "/oauth_xlweibodata")
 	// ,method=RequestMethod.POST)
 	@ResponseBody
 	public Map<String, Object> oauthWeiboData(
@@ -68,8 +68,8 @@ public class WeiboController {
 		return (model);
 	}
 
-	// 发微博
-	@RequestMapping(value = "/send_weibodata", method = RequestMethod.POST)
+	// 发新浪微博
+	@RequestMapping(value = "/send_xlweibodata", method = RequestMethod.POST)
 	@ResponseBody
 	public void sendWeibodata(@RequestParam("testparam") String testparam)
 			throws IOException {
@@ -86,8 +86,8 @@ public class WeiboController {
 		}
 	}
 
-	// 抓取微博并存入数据库
-	@RequestMapping(value = "/catch_weibodata", method = RequestMethod.POST)
+	// 抓取新浪微博并存入数据库
+	@RequestMapping(value = "/catch_xlweibodata", method = RequestMethod.POST)
 	@ResponseBody
 	public void catchWeibodata(@RequestParam("testparam") String testparam)
 			throws IOException {
@@ -113,8 +113,8 @@ public class WeiboController {
 	}
 	
 	
-	
-	@RequestMapping(value = "/get_newStatusList", method = RequestMethod.GET)
+	//store:XlNewStatusStore
+	@RequestMapping(value = "/get_xlNewStatusList", method = RequestMethod.GET)
 	@ResponseBody
 	public Map<String, Object> getNewStatusList(
 			@RequestParam("start") String start,

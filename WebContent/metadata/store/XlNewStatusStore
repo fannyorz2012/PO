@@ -8,10 +8,10 @@
     "userConfig": {
         "autoLoad": true,
         "autoSync": true,
-        "model": "newStatusModel",
-        "storeId": "newStatusStore",
-        "designer|userClassName": "newStatusStore",
-        "designer|userAlias": "newStatusStore"
+        "model": "XlNewStatusModel",
+        "storeId": "XlNewStatusStore",
+        "designer|userClassName": "XlNewStatusStore",
+        "designer|userAlias": "XlNewStatusStore"
     },
     "designerId": "029321d2-57ff-4cb4-be14-0a497a832db0",
     "cn": [
@@ -23,7 +23,7 @@
             },
             "codeClass": null,
             "userConfig": {
-                "url": "get_newStatusList"
+                "url": "get_xlNewStatusList"
             },
             "designerId": "3156c2e0-c40b-4484-b4eb-8efdf55a95ad",
             "cn": [

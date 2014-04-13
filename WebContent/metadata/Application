@@ -8,10 +8,10 @@
     "userConfig": {
         "models": [
             "userModel",
-            "newStatusModel"
+            "XlNewStatusModel"
         ],
         "stores": [
-            "newStatusStore"
+            "XlNewStatusStore"
         ],
         "views": [
             "MyViewport",

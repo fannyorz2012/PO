@@ -2,5 +2,5 @@
 <!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd" >
 
 <hibernate-reverse-engineering>
-  <table-filter match-catalog="opinion" match-name="new_status"/>
+  <table-filter match-catalog="opinion" match-name="xl_new_status"/>
 </hibernate-reverse-engineering>

@@ -14,20 +14,24 @@ import org.springframework.stereotype.Service;
 
 
 
+
+
 import weibo4j.model.Status;
 
 
 
+
+
 import com.opinion.common.Encoder;
-import com.opinion.model.NewStatus;
-import com.opinion.model.NewStatusHome;
 import com.opinion.model.Weibo;
 import com.opinion.model.WeiboHome;
+import com.opinion.model.XlNewStatus;
+import com.opinion.model.XlNewStatusHome;
 //changechange
 @Service
 public class WeiboService {
 	private WeiboHome weiboHome;
-	private NewStatusHome newStatusHome;
+	private XlNewStatusHome xlNewStatusHome;
 	private SessionFactory sessionFactory;
 	
 	@Autowired
@@ -41,28 +45,27 @@ public class WeiboService {
 	}
 	
 	@Autowired
-	public void setNewStatusHome(NewStatusHome newStatusHome){
-		this.newStatusHome = newStatusHome;
+	public void setNewStatusHome(XlNewStatusHome xlNewStatusHome){
+		this.xlNewStatusHome = xlNewStatusHome;
 	}
 	
 	
 
 	public void addNewSatus(Status s) {
-		NewStatus newStatus = new NewStatus();
-		newStatus.setCreatedAt(s.getCreatedAt());
-		newStatus.setId(s.getId());
-		newStatus.setMid(s.getMid());
-		//newStatus.setText(Encoder.encode(s.getText()));
-		newStatus.setText(s.getText());
+		XlNewStatus xlNewStatus = new XlNewStatus();
+		xlNewStatus.setCreatedAt(s.getCreatedAt());
+		xlNewStatus.setId(s.getId());
+		xlNewStatus.setMid(s.getMid());
+		xlNewStatus.setText(s.getText());
 		Session session = sessionFactory.getCurrentSession();
-		session.save(newStatus);
+		session.save(xlNewStatus);
 	}
 
 	public Map<String, Object> getNewStatusList(String start, String limit) {
 
-		String hql = "from NewStatus as newStatus";
+		String hql = "from XlNewStatus";
 		String totalConut = null;
-		List<NewStatus> results = null;
+		List<XlNewStatus> results = null;
 		try {
 			org.hibernate.Query query = sessionFactory.getCurrentSession()
 					.createQuery(hql);
