@@ -35,8 +35,8 @@
 		<property name="mappingResources">
 			<list>
 			<value>com/opinion/model/User.hbm.xml</value>
-			<value>com/opinion/model/Weibo.hbm.xml</value>
-			<value>com/opinion/model/XlNewStatus.hbm.xml</value>
+			<value>com/opinion/model/XlWeibo.hbm.xml</value>
+			<value>com/opinion/model/QqWeibo.hbm.xml</value>
 				
 
 

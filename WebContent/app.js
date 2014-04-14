@@ -21,10 +21,12 @@ Ext.Loader.setConfig({
 Ext.application({
     models: [
         'userModel',
-        'XlNewStatusModel'
+        'XlWeiboModel',
+        'QqWeiboModel'
     ],
     stores: [
-        'XlNewStatusStore'
+        'XlWeiboStore',
+        'QqWeiboStore'
     ],
     views: [
         'MyViewport',

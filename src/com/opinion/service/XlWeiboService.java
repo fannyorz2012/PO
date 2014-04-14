@@ -11,27 +11,16 @@ import org.springframework.stereotype.Service;
 
 
 
-
-
-
-
-
 import weibo4j.model.Status;
 
-
-
-
-
 import com.opinion.common.Encoder;
-import com.opinion.model.Weibo;
-import com.opinion.model.WeiboHome;
-import com.opinion.model.XlNewStatus;
-import com.opinion.model.XlNewStatusHome;
+import com.opinion.model.XlWeibo;
+import com.opinion.model.XlWeiboHome;
+import com.opinion.model.XlWeiboHome;
 //changechange
 @Service
-public class WeiboService {
-	private WeiboHome weiboHome;
-	private XlNewStatusHome xlNewStatusHome;
+public class XlWeiboService {
+	private XlWeiboHome xlWeiboHome;
 	private SessionFactory sessionFactory;
 	
 	@Autowired
@@ -39,33 +28,29 @@ public class WeiboService {
 		this.sessionFactory = sessionFactory;
 	}
 
-	@Autowired
-	public void setWeiboHome(WeiboHome weiboHome){
-		this.weiboHome = weiboHome;
-	}
 	
 	@Autowired
-	public void setNewStatusHome(XlNewStatusHome xlNewStatusHome){
-		this.xlNewStatusHome = xlNewStatusHome;
+	public void setWeiboHome(XlWeiboHome xlWeiboHome){
+		this.xlWeiboHome = xlWeiboHome;
 	}
 	
 	
 
-	public void addXlNewSatus(Status s) {
-		XlNewStatus xlNewStatus = new XlNewStatus();
-		xlNewStatus.setCreatedAt(s.getCreatedAt());
-		xlNewStatus.setId(s.getId());
-		xlNewStatus.setMid(s.getMid());
-		xlNewStatus.setText(s.getText());
+	public void addXlWeibo(Status s) {
+		XlWeibo xlWeibo = new XlWeibo();
+		xlWeibo.setCreatedAt(s.getCreatedAt());
+		xlWeibo.setId(s.getId());
+		xlWeibo.setMid(s.getMid());
+		xlWeibo.setText(s.getText());
 		Session session = sessionFactory.getCurrentSession();
-		session.save(xlNewStatus);
+		session.save(xlWeibo);
 	}
 
-	public Map<String, Object> getNewStatusList(String start, String limit) {
+	public Map<String, Object> getXlWeiboList(String start, String limit) {
 
-		String hql = "from XlNewStatus";
+		String hql = "from XlWeibo";
 		String totalConut = null;
-		List<XlNewStatus> results = null;
+		List<XlWeibo> results = null;
 		try {
 			org.hibernate.Query query = sessionFactory.getCurrentSession()
 					.createQuery(hql);

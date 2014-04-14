@@ -48,19 +48,19 @@
         },
         "029321d2-57ff-4cb4-be14-0a497a832db0": {
             "paths": [
-                "metadata/store/XlNewStatusStore",
-                "app/store/override/XlNewStatusStore.js",
-                "app/store/XlNewStatusStore.js"
+                "metadata/store/XlWeiboStore",
+                "app/store/override/XlWeiboStore.js",
+                "app/store/XlWeiboStore.js"
             ],
-            "className": "XlNewStatusStore"
+            "className": "XlWeiboStore"
         },
         "e4195dc6-5932-4f15-a78b-a4c68dab4f87": {
             "paths": [
-                "metadata/model/XlNewStatusModel",
-                "app/model/override/XlNewStatusModel.js",
-                "app/model/XlNewStatusModel.js"
+                "metadata/model/XlWeiboModel",
+                "app/model/override/XlWeiboModel.js",
+                "app/model/XlWeiboModel.js"
             ],
-            "className": "XlNewStatusModel"
+            "className": "XlWeiboModel"
         },
         "d4d0abd7-df5f-441e-a6e5-8fc8f5648c67": {
             "paths": [
@@ -69,6 +69,22 @@
                 "app/view/QqWeiboDataCatchTab.js"
             ],
             "className": "QqWeiboDataCatchTab"
+        },
+        "75e2d81e-bdda-4ddd-adea-746fbfef5483": {
+            "paths": [
+                "metadata/model/QqWeiboModel",
+                "app/model/override/QqWeiboModel.js",
+                "app/model/QqWeiboModel.js"
+            ],
+            "className": "QqWeiboModel"
+        },
+        "b300380c-fe42-4e1d-a0ec-b3189681fedd": {
+            "paths": [
+                "metadata/store/QqWeiboStore",
+                "app/store/override/QqWeiboStore.js",
+                "app/store/QqWeiboStore.js"
+            ],
+            "className": "QqWeiboStore"
         }
     },
     "viewOrderMap": {
@@ -78,12 +94,14 @@
             "d4d0abd7-df5f-441e-a6e5-8fc8f5648c67"
         ],
         "store": [
-            "029321d2-57ff-4cb4-be14-0a497a832db0"
+            "029321d2-57ff-4cb4-be14-0a497a832db0",
+            "b300380c-fe42-4e1d-a0ec-b3189681fedd"
         ],
         "controller": [],
         "model": [
             "8273c8cf-2ee3-47ee-acd4-fd2cbb61c34b",
-            "e4195dc6-5932-4f15-a78b-a4c68dab4f87"
+            "e4195dc6-5932-4f15-a78b-a4c68dab4f87",
+            "75e2d81e-bdda-4ddd-adea-746fbfef5483"
         ],
         "resource": [
             "09c7b4be-d8a6-48f3-9d84-37fcd3101e57"
