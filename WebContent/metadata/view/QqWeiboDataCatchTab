@@ -1,0 +1,236 @@
+{
+    "type": "Ext.panel.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "height": null,
+        "id": "QqWeiboDataCatchTab",
+        "width": null,
+        "designer|userClassName": "QqWeiboDataCatchTab",
+        "designer|userAlias": "QqWeiboDataCatchTab",
+        "layout": "fit",
+        "title": "舆情信息获取"
+    },
+    "designerId": "d4d0abd7-df5f-441e-a6e5-8fc8f5648c67",
+    "cn": [
+        {
+            "type": "Ext.grid.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "id": "QqNewStatusGrid",
+                "title": "QQ微博列表",
+                "forceFit": true,
+                "store": "QqWeiboStore"
+            },
+            "designerId": "53952be3-385d-4f9e-903d-4acc050f914f",
+            "cn": [
+                {
+                    "type": "Ext.grid.RowNumberer",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "width": 50
+                    },
+                    "designerId": "c269f34b-1f43-4154-9019-b5961c18812f"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "width": 20,
+                        "dataIndex": "id",
+                        "text": "id"
+                    },
+                    "designerId": "8afd6563-dec6-4560-9bd7-dc05b3b0f90e"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "width": 20,
+                        "dataIndex": "date",
+                        "text": "date"
+                    },
+                    "designerId": "a58ba7dd-b565-403b-894e-2b78553ad675"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "text",
+                        "text": "text"
+                    },
+                    "designerId": "5d9e14d9-3d6c-49c2-87c7-2b46e494db0d"
+                },
+                {
+                    "type": "Ext.grid.View",
+                    "reference": {
+                        "name": "viewConfig",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "designerId": "8b4e82f8-2f2d-4e57-a263-9a9a6d8960d2"
+                },
+                {
+                    "type": "Ext.toolbar.Paging",
+                    "reference": {
+                        "name": "dockedItems",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dock": "bottom",
+                        "width": 360,
+                        "displayInfo": true,
+                        "store": "QqWeiboStore"
+                    },
+                    "designerId": "e211471a-a609-4f94-ba95-c52adf7cdeb0"
+                }
+            ]
+        },
+        {
+            "type": "Ext.toolbar.Toolbar",
+            "reference": {
+                "name": "dockedItems",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dock": "top"
+            },
+            "designerId": "eb2f300e-c752-438e-a1df-f47e15131c65",
+            "cn": [
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": null,
+                        "text": "发QQ微博"
+                    },
+                    "designerId": "fe550d1c-2d43-4c77-8a28-632d45a68e12",
+                    "cn": [
+                        {
+                            "type": "fixedfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "handler",
+                                "designer|params": [
+                                    "button",
+                                    "event"
+                                ],
+                                "implHandler": [
+                                    "Ext.Msg.confirm('您正在发微博数据：', '确认？', getResult);\r",
+                                    "function getResult(confirm)\r",
+                                    "{\r",
+                                    "    console.log('confirm:', confirm);\r",
+                                    "    if (confirm == \"yes\"){\r",
+                                    "\r",
+                                    "\r",
+                                    "        Ext.Ajax.request({\r",
+                                    "            url:'send_qqweibodata',\r",
+                                    "            params:{testparam:'0'},        \r",
+                                    "            success:function(response){\r",
+                                    "                Ext.Msg.alert('success','发微博成功');                         \r",
+                                    "            },\r",
+                                    "            failure:function(response){\r",
+                                    "                Ext.Msg.alert('failure','发微博失败');      \r",
+                                    "            }\r",
+                                    "\r",
+                                    "        });\r",
+                                    "    }   \r",
+                                    "}"
+                                ]
+                            },
+                            "designerId": "10e27675-8003-427d-88b9-0b6487ef8def"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": null,
+                        "text": "抓取QQ微博"
+                    },
+                    "designerId": "947a66ad-36a2-47c1-93bb-6cdd6a966104",
+                    "cn": [
+                        {
+                            "type": "fixedfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "handler",
+                                "designer|params": [
+                                    "button",
+                                    "event"
+                                ],
+                                "implHandler": [
+                                    "Ext.Msg.confirm('您正在抓取微博数据：', '确认？', getResult);\r",
+                                    "function getResult(confirm)\r",
+                                    "{\r",
+                                    "    console.log('confirm:', confirm);\r",
+                                    "    if (confirm == \"yes\"){\r",
+                                    "\r",
+                                    "\r",
+                                    "        Ext.Ajax.request({\r",
+                                    "            url:'catch_qqweibodata',\r",
+                                    "            params:{testparam:'0'},        \r",
+                                    "            success:function(response){\r",
+                                    "                var mystore = Ext.StoreMgr.get('QqWeiboStore'); //获得store对象\r",
+                                    "                mystore.load();\r",
+                                    "                Ext.Msg.alert('success','抓取微博成功');                         \r",
+                                    "            },\r",
+                                    "            failure:function(response){\r",
+                                    "                Ext.Msg.alert('failure','抓取微博失败');      \r",
+                                    "            }\r",
+                                    "\r",
+                                    "        });\r",
+                                    "    }   \r",
+                                    "}"
+                                ]
+                            },
+                            "designerId": "248a2deb-d94c-4e18-b751-5891e0e017b9"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

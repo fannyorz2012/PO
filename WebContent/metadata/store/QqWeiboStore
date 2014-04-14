@@ -1,0 +1,45 @@
+{
+    "type": "jsonstore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "autoLoad": true,
+        "autoSync": true,
+        "model": "QqWeiboModel",
+        "storeId": "QqWeiboStore",
+        "designer|userClassName": "QqWeiboStore",
+        "designer|userAlias": "QqWeiboStore"
+    },
+    "designerId": "b300380c-fe42-4e1d-a0ec-b3189681fedd",
+    "cn": [
+        {
+            "type": "Ext.data.proxy.Ajax",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "url": "get_qqWeiboList"
+            },
+            "designerId": "cab1358a-32d8-4daf-a15a-9787a7735a5d",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "root": "root"
+                    },
+                    "designerId": "23da33ff-4330-466c-9efa-d401e1fe0d8c"
+                }
+            ]
+        }
+    ]
+}
