@@ -34,21 +34,12 @@ import weibo4j.model.WeiboException;
 import weibo4j.util.BareBonesBrowserLaunch;
 
 import com.opinion.service.XlWeiboService;
-import com.tencent.weibo.api.FriendsAPI;
-import com.tencent.weibo.api.InfoAPI;
-import com.tencent.weibo.api.PrivateAPI;
-import com.tencent.weibo.api.SearchAPI;
-import com.tencent.weibo.api.StatusesAPI;
-import com.tencent.weibo.api.TAPI;
-import com.tencent.weibo.api.UserAPI;
-import com.tencent.weibo.oauthv2.OAuthV2;
-import com.tencent.weibo.oauthv2.OAuthV2Client;
-import com.tencent.weibo.utils.QHttpClient;
+
 
 @Controller
 public class XlWeiboController {
 	private XlWeiboService xlWeiboService;
-	private static OAuthV2 oAuth = new OAuthV2();
+	
 
 	@Autowired
 	public XlWeiboController(XlWeiboService xlWeiboService) {

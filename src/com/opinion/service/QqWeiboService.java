@@ -238,6 +238,25 @@ public class QqWeiboService {
 		 */
 
 	}
+
+	public void saveQqWeibo(String string) {
+
+		QqWeibo qqweibo = new QqWeibo();
+		qqweibo.setText(string);
+		Session session = sessionFactory.getCurrentSession();
+		try {
+			session.save(qqweibo);
+		} catch (Exception er) {
+			System.out.println(er.getMessage());
+		}
+
+		
+	}
+
+	public void fenci() {
+
+		System.out.print("fenci test system.out.println");
+	}
 	
 	
 }

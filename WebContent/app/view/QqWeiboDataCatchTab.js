@@ -126,6 +126,62 @@ Ext.define('MyApp.view.QqWeiboDataCatchTab', {
                                 }
                             },
                             text: '抓取QQ微博'
+                        },
+                        {
+                            xtype: 'button',
+                            handler: function(button, event) {
+                                Ext.Msg.confirm('您正在抓取微博数据：', '确认？', getResult);
+                                function getResult(confirm)
+                                {
+                                    console.log('confirm:', confirm);
+                                    if (confirm == "yes"){
+
+
+                                        Ext.Ajax.request({
+                                            url:'parser_json',
+                                            //params:{testparam:'0'},        
+                                            success:function(response){
+                                                var mystore = Ext.StoreMgr.get('QqWeiboStore'); //获得store对象
+                                                mystore.load();
+                                                Ext.Msg.alert('success','解析微博成功');                         
+                                            },
+                                            failure:function(response){
+                                                Ext.Msg.alert('failure','解析微博失败');      
+                                            }
+
+                                        });
+                                    }   
+                                }
+                            },
+                            text: '解析json'
+                        },
+                        {
+                            xtype: 'button',
+                            handler: function(button, event) {
+                                Ext.Msg.confirm('您正在进行分词：', '确认？', getResult);
+                                function getResult(confirm)
+                                {
+                                    console.log('confirm:', confirm);
+                                    if (confirm == "yes"){
+
+
+                                        Ext.Ajax.request({
+                                            url:'fenci',
+                                            //params:{testparam:'0'},        
+                                            success:function(response){
+                                                //var mystore = Ext.StoreMgr.get('QqWeiboStore'); //获得store对象
+                                                //mystore.load();
+                                                Ext.Msg.alert('success','分词成功');                         
+                                            },
+                                            failure:function(response){
+                                                Ext.Msg.alert('failure','分词成功');      
+                                            }
+
+                                        });
+                                    }   
+                                }
+                            },
+                            text: '中文分词'
                         }
                     ]
                 }

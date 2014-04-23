@@ -229,6 +229,116 @@
                             "designerId": "248a2deb-d94c-4e18-b751-5891e0e017b9"
                         }
                     ]
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": null,
+                        "text": "解析json"
+                    },
+                    "designerId": "b312ce65-334f-4f54-bd58-e9a428f94653",
+                    "cn": [
+                        {
+                            "type": "fixedfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "handler",
+                                "designer|params": [
+                                    "button",
+                                    "event"
+                                ],
+                                "implHandler": [
+                                    "Ext.Msg.confirm('您正在抓取微博数据：', '确认？', getResult);\r",
+                                    "function getResult(confirm)\r",
+                                    "{\r",
+                                    "    console.log('confirm:', confirm);\r",
+                                    "    if (confirm == \"yes\"){\r",
+                                    "\r",
+                                    "\r",
+                                    "        Ext.Ajax.request({\r",
+                                    "            url:'parser_json',\r",
+                                    "            //params:{testparam:'0'},        \r",
+                                    "            success:function(response){\r",
+                                    "                var mystore = Ext.StoreMgr.get('QqWeiboStore'); //获得store对象\r",
+                                    "                mystore.load();\r",
+                                    "                Ext.Msg.alert('success','解析微博成功');                         \r",
+                                    "            },\r",
+                                    "            failure:function(response){\r",
+                                    "                Ext.Msg.alert('failure','解析微博失败');      \r",
+                                    "            }\r",
+                                    "\r",
+                                    "        });\r",
+                                    "    }   \r",
+                                    "}"
+                                ]
+                            },
+                            "designerId": "e8179c18-36e1-47ae-9929-20f50fedf64d"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": null,
+                        "text": "中文分词"
+                    },
+                    "designerId": "5a87cbcb-99fd-4d13-8b66-300368804a6f",
+                    "cn": [
+                        {
+                            "type": "fixedfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "handler",
+                                "designer|params": [
+                                    "button",
+                                    "event"
+                                ],
+                                "implHandler": [
+                                    "Ext.Msg.confirm('您正在进行分词：', '确认？', getResult);\r",
+                                    "function getResult(confirm)\r",
+                                    "{\r",
+                                    "    console.log('confirm:', confirm);\r",
+                                    "    if (confirm == \"yes\"){\r",
+                                    "\r",
+                                    "\r",
+                                    "        Ext.Ajax.request({\r",
+                                    "            url:'fenci',\r",
+                                    "            //params:{testparam:'0'},        \r",
+                                    "            success:function(response){\r",
+                                    "                //var mystore = Ext.StoreMgr.get('QqWeiboStore'); //获得store对象\r",
+                                    "                //mystore.load();\r",
+                                    "                Ext.Msg.alert('success','分词成功');                         \r",
+                                    "            },\r",
+                                    "            failure:function(response){\r",
+                                    "                Ext.Msg.alert('failure','分词成功');      \r",
+                                    "            }\r",
+                                    "\r",
+                                    "        });\r",
+                                    "    }   \r",
+                                    "}"
+                                ]
+                            },
+                            "designerId": "764813ce-bac8-4a41-8e43-e9c0550cc3e9"
+                        }
+                    ]
                 }
             ]
         }
