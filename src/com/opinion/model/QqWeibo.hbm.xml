@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 2014-4-14 8:48:37 by Hibernate Tools 4.0.0 -->
+<!-- Generated 2014-5-22 16:16:19 by Hibernate Tools 4.0.0 -->
 <hibernate-mapping>
     <class name="com.opinion.model.QqWeibo" table="qq_weibo" catalog="opinion">
         <id name="number" type="java.lang.Integer">
@@ -16,6 +16,9 @@
         </property>
         <property name="text" type="string">
             <column name="text" length="65535" />
+        </property>
+        <property name="fenci" type="string">
+            <column name="fenci" length="65535" />
         </property>
     </class>
 </hibernate-mapping>

@@ -19,7 +19,6 @@ import java.util.Scanner;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +28,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+
 
 import com.opinion.service.QqWeiboService;
 import com.tencent.weibo.oauthv2.OAuthV2;
@@ -56,7 +56,7 @@ public class QqWeiboController {
 
 	}
 
-	// 发QQ微博
+	// 鍙慟Q寰崥
 	@RequestMapping(value = "/send_qqweibodata", method = RequestMethod.POST)
 	@ResponseBody
 	public void sendQqWeibodata(@RequestParam("testparam") String testparam)
@@ -70,7 +70,7 @@ public class QqWeiboController {
 
 	}
 
-	// 抓取QQ微博并存储
+	// 鎶撳彇QQ寰崥骞跺瓨鍌�
 	@RequestMapping(value = "/catch_qqweibodata")
 	// ,method=RequestMethod.POST)
 	@ResponseBody
@@ -82,7 +82,7 @@ public class QqWeiboController {
 		model.put("success", true);
 		model.put("msg", "successfully saved");
 
-		// 执行测试列表
+		// 鎵ц娴嬭瘯鍒楄〃
 		try {
 
 			this.qqWeiboService.catchQqweibo();
@@ -93,7 +93,7 @@ public class QqWeiboController {
 		return (model);
 	}
 
-	// 解析json
+	// 瑙ｆ瀽json
 	@RequestMapping(value = "/parser_json")
 	// ,method=RequestMethod.POST)
 	@ResponseBody
@@ -103,10 +103,10 @@ public class QqWeiboController {
 		String encoding = "gbk";
 		String s = "";
 		// FileReader fr = new FileReader("C:\\tudiliuzhuan100json.txt");
-		// 可以换成工程目录下的其他文本文件
-		File file = new File("C:\\tudiliuzhuan200json.txt");
+		// 鍙互鎹㈡垚宸ョ▼鐩綍涓嬬殑鍏朵粬鏂囨湰鏂囦欢
+		File file = new File("C:\\tudiliuzhuan100json.txt");
 		InputStreamReader read = new InputStreamReader(
-				new FileInputStream(file), encoding);// 考虑到编码格式
+				new FileInputStream(file), encoding);// 鑰冭檻鍒扮紪鐮佹牸寮�
 		BufferedReader br = new BufferedReader(read);
 		String line;
 		while ((line = br.readLine()) != null) {
@@ -142,8 +142,13 @@ public class QqWeiboController {
 	// ,method=RequestMethod.POST)
 	@ResponseBody
 	public Map<String, Object> fenci() throws IOException {
-		System.out.println("fenci controllar");
-		this.qqWeiboService.fenci();
+		System.out.println("fenci controllar begin ");
+		//String result = this.qqWeiboService.fenci();
+		
+		//Test.fc();
+		
+		this.qqWeiboService.updateEasilyFenci();
+		
 		Map<String, Object> model = new HashMap<String, Object>();
 		model.put("success", true);
 		model.put("msg", "successfully saved");

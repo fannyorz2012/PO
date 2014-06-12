@@ -1,10 +1,15 @@
+/BlueAnalyzer.cfg.xml
+/ICTCLAS
 /assets
 /com
 /config.properties
+/dic
 /entities
+/ext.dic
 /hibernate.cfg.xml
 /index.html
 /log4j.properties
+/org
 /resources
 /tables
 /weibo4j

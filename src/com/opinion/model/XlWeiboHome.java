@@ -1,6 +1,6 @@
 package com.opinion.model;
 
-// Generated 2014-4-14 8:48:37 by Hibernate Tools 4.0.0
+// Generated 2014-5-22 16:16:20 by Hibernate Tools 4.0.0
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 

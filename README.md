@@ -1,2 +1,0 @@
-##PO
-Public Opinion Project.

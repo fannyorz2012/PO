@@ -1,5 +1,8 @@
 package com.opinion.service;
 
+import java.io.File;
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.net.URI;
 import java.util.List;
 import java.util.Map;
@@ -8,10 +11,17 @@ import java.util.TreeMap;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.ibm.nlp.chinese.tokenizaer.core.Token;
+import org.ibm.nlp.chinese.tokenizaer.core.Tokenizer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import net.sf.json.JSONObject;
+
+//import ICTCLAS.I3S.AC.ICTCLAS50;
+
+import ICTCLAS.I3S.AC.ICTCLAS50;
+import ICTCLAS.I3S.AC.QqFenci;
 
 import com.opinion.common.Encoder;
 import com.opinion.model.QqWeibo;
@@ -61,7 +71,7 @@ public class QqWeiboService {
 		return myMapResult;
 
 	}
-	
+
 	private static void init(OAuthV2 oAuth) {
 
 		oAuth.setClientId("801433372");
@@ -73,12 +83,12 @@ public class QqWeiboService {
 		oAuth.setExpiresIn("8035200");
 
 	}
-	
+
 	public class TestParams {
 		/*
-		 * -----------------------------------------简化测试参数
+		 * -----------------------------------------绠�寲娴嬭瘯鍙傛暟
 		 * begin-----------------------------------------------
-		 * 下列每个参数的具体含义和取值，请参看其所在函数的doc文档
+		 * 涓嬪垪姣忎釜鍙傛暟鐨勫叿浣撳惈涔夊拰鍙栧�锛岃鍙傜湅鍏舵墍鍦ㄥ嚱鏁扮殑doc鏂囨。
 		 */
 		String response;
 		String format = "json";
@@ -91,7 +101,7 @@ public class QqWeiboService {
 		String reqnum = "5";
 		String lastid = "'0";
 		String contenttype = "0";
-		String content = "2";// 注意：因为后台会对微博内容进行判重，所以在重复测试时加上变换部分++++++++
+		String content = "2";// 娉ㄦ剰锛氬洜涓哄悗鍙颁細瀵瑰井鍗氬唴瀹硅繘琛屽垽閲嶏紝鎵�互鍦ㄩ噸澶嶆祴璇曟椂鍔犱笂鍙樻崲閮ㄥ垎++++++++
 		String twitterid = "0";
 		String fopenids = "";
 		String fopenid = "";
@@ -101,7 +111,7 @@ public class QqWeiboService {
 		String names = "api_weibo,t-qq-com,vvtest1";
 		String name = "t-qq-com";
 		String flag = "2";
-		String keyword = "微博";
+		String keyword = "寰崥";
 		String pagesize = "5";
 		String page = "0";
 		String searchtype = "0";
@@ -122,16 +132,16 @@ public class QqWeiboService {
 		String picpath = System.getProperty("user.dir")
 				+ "\\src\\main\\resources\\logo_QWeibo.jpg";
 		/*
-		 * -----------------------------------------简化测试参数
+		 * -----------------------------------------绠�寲娴嬭瘯鍙傛暟
 		 * end-----------------------------------------------
 		 */
 	}
-	
+
 	public void openBrowser(OAuthV2 oAuth) {
 
 		String authorizationUrl = OAuthV2Client.generateAuthorizationURL(oAuth);
 
-		// 调用外部浏览器
+		// 璋冪敤澶栭儴娴忚鍣�
 		if (!java.awt.Desktop.isDesktopSupported()) {
 
 			System.err.println("Desktop is not supported (fatal)");
@@ -166,74 +176,87 @@ public class QqWeiboService {
 		}
 	}
 
-	
 	public void sendQqWeibodata() throws Exception {
-		System.out.println("sendQqWeibodata  Response from server：");
-		
+		System.out.println("sendQqWeibodata  Response from ser");
+
 		TestParams testParams = new TestParams();
-		
+
 		init(oAuth);
-		 System.out.println("oAuth.getAccessToken() = "+oAuth.getAccessToken()); 
-		
+		System.out
+				.println("oAuth.getAccessToken() = " + oAuth.getAccessToken());
+
 		/*
-		 * ---------------------------------------- 微博相关测试例
-		 * begin--------------------------------------------- 注意：
-		 * 微博服务器对发微博的频率有限制，如果不加 sleep() 直接执行下列多条发微博操作， 可能会出现 ret=4 errcode=10
-		 * 的错误码，意思是：发表太快，被频率限制
-		 */ 
-		  TAPI tAPI=new TAPI(oAuth.getOauthVersion());//根据oAuth配置对应的连接管理器
-		  
-		  //取得返回结果 
-		  testParams.response=tAPI.add(oAuth, testParams.format, "故都的秋 秋天 测试发表文字微博"+testParams.content, testParams.clientip, testParams.jing, testParams.wei, testParams.syncflag); 
-		  // json数据使用 response的结果可能是这样，{"data":{"id":"90221131024999","time":1333002978},"errcode"		  :0,"msg":"ok","ret":0}
-		  // 下面的代码将取出 id 的对应值，并赋予 reid
-		 
-		  System.out.println("response = "+testParams.response); 
-		  JSONObject responseJsonObject; 
-		  JSONObject dataJsonObject;
-		  responseJsonObject= JSONObject.fromObject(testParams.response);
-		  dataJsonObject=(JSONObject)responseJsonObject.get("data");
-		  testParams.id=testParams.ids=testParams.reid=dataJsonObject.get("id").toString();//对后面用到的 reid 赋值
-		  System.out.println("reid = "+ testParams.reid);
-		  try { 
-			  Thread.sleep ( 5000 ) ; 
-			  }catch (InterruptedException ie){}
-		  
-		  tAPI.reList(oAuth, testParams.format, testParams.flag, testParams.id, testParams.pageflag, testParams.pagetime, testParams.reqnum,
-				  testParams.twitterid); 
-		  //tAPI.del(oAuth, testParams.format, testParams.id);
-		  
-		  tAPI.shutdownConnection();//关闭连接管理器
-		  
-		  
-		 /* ------------------------------------------ 微博相关测试例
+		 * ---------------------------------------- 寰崥鐩稿叧娴嬭瘯渚�
+		 * begin--------------------------------------------- 娉ㄦ剰锛�
+		 * 寰崥鏈嶅姟鍣ㄥ鍙戝井鍗氱殑棰戠巼鏈夐檺鍒讹紝濡傛灉涓嶅姞 sleep() 鐩存帴鎵ц涓嬪垪澶氭潯鍙戝井鍗氭搷浣滐紝
+		 * 鍙兘浼氬嚭鐜�ret=4 errcode=10 鐨勯敊璇爜锛屾剰鎬濇槸锛氬彂琛ㄥお蹇紝琚鐜囬檺鍒�
+		 */
+		TAPI tAPI = new TAPI(oAuth.getOauthVersion());// 鏍规嵁oAuth閰嶇疆瀵瑰簲鐨勮繛鎺ョ鐞嗗櫒
+
+		// 鍙栧緱杩斿洖缁撴灉
+		testParams.response = tAPI.add(oAuth, testParams.format,
+				"鏁呴兘鐨勭 绉嬪ぉ 娴嬭瘯鍙戣〃鏂囧瓧寰崥" + testParams.content,
+				testParams.clientip, testParams.jing, testParams.wei,
+				testParams.syncflag);
+		// json鏁版嵁浣跨敤
+		// response鐨勭粨鏋滃彲鑳芥槸杩欐牱锛寋"data":{"id":"90221131024999","time":1333002978},"errcode"
+		// :0,"msg":"ok","ret":0}
+		// 涓嬮潰鐨勪唬鐮佸皢鍙栧嚭 id 鐨勫搴斿�锛屽苟璧嬩簣 reid
+
+		System.out.println("response = " + testParams.response);
+		JSONObject responseJsonObject;
+		JSONObject dataJsonObject;
+		responseJsonObject = JSONObject.fromObject(testParams.response);
+		dataJsonObject = (JSONObject) responseJsonObject.get("data");
+		testParams.id = testParams.ids = testParams.reid = dataJsonObject.get(
+				"id").toString();// 瀵瑰悗闈㈢敤鍒扮殑 reid 璧嬪�
+		System.out.println("reid = " + testParams.reid);
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException ie) {
+		}
+
+		tAPI.reList(oAuth, testParams.format, testParams.flag, testParams.id,
+				testParams.pageflag, testParams.pagetime, testParams.reqnum,
+				testParams.twitterid);
+		// tAPI.del(oAuth, testParams.format, testParams.id);
+
+		tAPI.shutdownConnection();// 鍏抽棴杩炴帴绠＄悊鍣�
+
+		/*
+		 * ------------------------------------------ 寰崥鐩稿叧娴嬭瘯渚�
 		 * end--------------------------------------------
 		 */
 
 	}
 
 	public void catchQqweibo() throws Exception {
-		System.out.println("catchQqweibo  Response from server：");
+		System.out.println("catchQqweibo  Response from serve");
 		TestParams testParams = new TestParams();
-		
+
 		init(oAuth);
-		 System.out.println("oAuth.getAccessToken() = "+oAuth.getAccessToken()); 
+		System.out
+				.println("oAuth.getAccessToken() = " + oAuth.getAccessToken());
 		/*
-		 * -------------------------------------------- 搜索相关测试例
+		 * -------------------------------------------- 鎼滅储鐩稿叧娴嬭瘯渚�
 		 * begin-----------------------------------------------
 		 */
 		System.out.println("**************begin searchAPI************");
 		SearchAPI searchAPI = new SearchAPI(oAuth.getOauthVersion());
 
-		String searchResponse = searchAPI.t(oAuth, testParams.format, testParams.keyword, testParams.pagesize,
-				testParams.page, testParams.contenttype, testParams.sorttype, testParams.msgtype, testParams.searchtype, testParams.starttime,
-				testParams.endtime, testParams.province, testParams.city, testParams.longitue, testParams.latitude, testParams.radius);
+		String searchResponse = searchAPI.t(oAuth, testParams.format,
+				testParams.keyword, testParams.pagesize, testParams.page,
+				testParams.contenttype, testParams.sorttype,
+				testParams.msgtype, testParams.searchtype,
+				testParams.starttime, testParams.endtime, testParams.province,
+				testParams.city, testParams.longitue, testParams.latitude,
+				testParams.radius);
 
 		System.out.println("**************searchAPI response = "
 				+ searchResponse);
 		searchAPI.shutdownConnection();
 		/*
-		 * --------------------------------------------- 搜索相关测试例 end
+		 * --------------------------------------------- 鎼滅储鐩稿叧娴嬭瘯渚�end
 		 * ------------------------------------------------
 		 */
 
@@ -245,18 +268,106 @@ public class QqWeiboService {
 		qqweibo.setText(string);
 		Session session = sessionFactory.getCurrentSession();
 		try {
-			session.save(qqweibo);
+			session.saveOrUpdate(qqweibo);
 		} catch (Exception er) {
 			System.out.println(er.getMessage());
 		}
 
+	}
+
+	public String fenci() throws UnsupportedEncodingException {
+
+		System.out.print("fenci: ");
+
+		String result = "";
+		
+		List<QqWeibo> qqWeiboList = null;
+		try {
+			org.hibernate.Query query = sessionFactory.getCurrentSession()
+					.createQuery("from QqWeibo");
+
+			qqWeiboList = query.list();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		String sInput = null;
+
+		for (int i = 0; i < qqWeiboList.size(); i++) {
+			QqWeibo a = qqWeiboList.get(i);
+			sInput = a.getText();
+			System.out.println(sInput);		
+			QqFenci.main(null);
+
+		}
+		
+		
+		
+		
+
+		return result;
+
+	}
+
+	public void updateEasilyFenci() throws IOException {
+
+		Session session = sessionFactory.getCurrentSession();
+		List<QqWeibo> qqWeiboList = null;
+		try {
+			org.hibernate.Query query = sessionFactory.getCurrentSession()
+					.createQuery("from QqWeibo");
+
+			qqWeiboList = query.list();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		String sInput = null;
+
+		for (int i = 0; i < qqWeiboList.size(); i++) {
+			
+			String fenci_result = "";
+			QqWeibo a = qqWeiboList.get(i);
+			sInput = a.getText();
+			System.out.println(sInput);	
+			
+			
+			Tokenizer tokenizer=new Tokenizer(true);
+		    
+		    long start=System.currentTimeMillis();
+			long memUsed1=used();
+			
+			tokenizer.setInputStream(sInput);
+			Token token=tokenizer.getNextToken();
+			while(token !=null){
+				
+				System.out.print(token.getString()+"|");
+				fenci_result = fenci_result+ token.getString()+"|";
+				token=tokenizer.getNextToken();
+			}
+
+			System.out.println("fenci_result: "+fenci_result);
+			System.out.println("fenci done");
+			a.setFenci(fenci_result);
+			a.setId("123456");
+			session.saveOrUpdate(a);			
+			session.flush();
+			long memUsed2=used();
+		    long end=System.currentTimeMillis();
+		    System.out.println("time used: "+(end-start)+" ms");
+		    System.out.println("mem used: "+memUsed2+" - "+memUsed1+" = "+(memUsed2-memUsed1)+" Byte");
+		}
+		
+		
+		
+		
 		
 	}
-
-	public void fenci() {
-
-		System.out.print("fenci test system.out.println");
+	public static long used() {
+		   long total=Runtime.getRuntime().totalMemory();
+		   long free=Runtime.getRuntime().freeMemory();
+		   return (total-free);
 	}
 	
-	
+
 }

@@ -1,6 +1,6 @@
 package com.opinion.model;
 
-// Generated 2014-4-14 8:48:37 by Hibernate Tools 4.0.0
+// Generated 2014-5-22 16:16:18 by Hibernate Tools 4.0.0
 
 import java.util.Date;
 
@@ -13,14 +13,16 @@ public class QqWeibo implements java.io.Serializable {
 	private String id;
 	private Date date;
 	private String text;
+	private String fenci;
 
 	public QqWeibo() {
 	}
 
-	public QqWeibo(String id, Date date, String text) {
+	public QqWeibo(String id, Date date, String text, String fenci) {
 		this.id = id;
 		this.date = date;
 		this.text = text;
+		this.fenci = fenci;
 	}
 
 	public Integer getNumber() {
@@ -53,6 +55,14 @@ public class QqWeibo implements java.io.Serializable {
 
 	public void setText(String text) {
 		this.text = text;
+	}
+
+	public String getFenci() {
+		return this.fenci;
+	}
+
+	public void setFenci(String fenci) {
+		this.fenci = fenci;
 	}
 
 }
